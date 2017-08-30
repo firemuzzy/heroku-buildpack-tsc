@@ -35,6 +35,10 @@ modify_tsconfig() {
     local jq_filter=""
 
     read -r comments sourceMap <<< $(read_json $BUILD_DIR/tsconfig.json '.compilerOptions.removeComments, .compilerOptions.sourceMap')
+    
+    echo "SOURCEMAP"
+    echo $sourceMap
+
     if [ $sourceMap == "true" ] || [ $sourceMap == "null" ]; then
         echo "Disable source maps for production build"
         jq_filter="$jq_filter | .compilerOptions.sourceMap = false"
