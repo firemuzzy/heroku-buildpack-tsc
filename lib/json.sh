@@ -39,15 +39,15 @@ modify_tsconfig() {
     echo "SOURCEMAP"
     echo $sourceMap
 
-    if [ $sourceMap == "true" ] || [ $sourceMap == "null" ]; then
-        echo "Disable source maps for production build"
-        jq_filter="$jq_filter | .compilerOptions.sourceMap = false"
-    fi
+    # if [ $sourceMap == "true" ] || [ $sourceMap == "null" ]; then
+    #     echo "Disable source maps for production build"
+    #     jq_filter="$jq_filter | .compilerOptions.sourceMap = false"
+    # fi
 
-    if [ $comments == "false" ] || [ $comments == "null" ]; then
-        echo "Disable comments for production build"
-        jq_filter="$jq_filter | .compilerOptions.removeComments = true"
-    fi
+    # if [ $comments == "false" ] || [ $comments == "null" ]; then
+    #     echo "Disable comments for production build"
+    #     jq_filter="$jq_filter | .compilerOptions.removeComments = true"
+    # fi
 
     cat $1 | $JQ ". $jq_filter" > $2
 }
