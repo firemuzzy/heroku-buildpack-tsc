@@ -28,8 +28,8 @@ create_build_env
 
 ### Prepare TypeScript configuration file for production environment
 
-header "Preparing TypeScript configuration"
-prepare_tsconfig | output $LOG_FILE
+# header "Preparing TypeScript configuration"
+# prepare_tsconfig | output $LOG_FILE
 
 build_dependencies() {
     if $YARN; then
