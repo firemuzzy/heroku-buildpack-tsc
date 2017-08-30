@@ -16,8 +16,6 @@ create_build_env() {
 
     export TSC_CUSTOM_FILE=${TSC_CUSTOM_FILE:-tsconfig.json}
     export TSC_CUSTOM_PATH=$BUILD_DIR/$TSC_CUSTOM_FILE
-    export TSC_DEFAULT_FILE=.heroku-tsconfig.json
-    export TSC_DEFAULT_PATH=$BUILD_DIR/$TSC_DEFAULT_FILE
 
     export NODE_ENV=${TSC_BUILD_ENV:-$NODE_ENV}
     export NODE_VERBOSE=${NODE_VERBOSE:-false}

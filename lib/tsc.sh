@@ -38,8 +38,6 @@ list_dependencies() {
 
 compile_ts() {
     local build_dir=${1:-}
-    echo "BUILD_DIR:" $build_dir
-    echo "CUSTOM_TSC:" $CUSTOM_TSC
 
     cd "$build_dir"
     ./node_modules/.bin/tsc --pretty --project $TSC_CUSTOM_FILE

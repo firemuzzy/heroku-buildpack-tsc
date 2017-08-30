@@ -14,7 +14,6 @@ set -o pipefail
 
 source $BP_DIR/lib/output.sh
 source $BP_DIR/lib/env.sh
-source $BP_DIR/lib/json.sh
 source $BP_DIR/lib/tsc.sh
 
 ### Setting development environment
@@ -24,12 +23,8 @@ export_env_dir "$ENV_DIR"
 create_build_env
 
 [ -f "$BUILD_DIR/yarn.lock" ] && YARN=true || YARN=false
-[ "$TSC_CUSTOM_FILE" = "tsconfig.json" ] && CUSTOM_TSC=false || CUSTOM_TSC=true
 
 ### Prepare TypeScript configuration file for production environment
-
-# header "Preparing TypeScript configuration"
-# prepare_tsconfig | output $LOG_FILE
 
 build_dependencies() {
     if $YARN; then
