@@ -42,11 +42,5 @@ compile_ts() {
     echo "CUSTOM_TSC:" $CUSTOM_TSC
 
     cd "$build_dir"
-    if $CUSTOM_TSC; then
-        echo "USING" $TSC_CUSTOM_FILE
-        ./node_modules/.bin/tsc --pretty --project $TSC_CUSTOM_FILE
-    else
-        echo "USING" $TSC_DEFAULT_FILE
-        ./node_modules/.bin/tsc --pretty --project $TSC_DEFAULT_FILE
-    fi
+    ./node_modules/.bin/tsc --pretty --project $TSC_CUSTOM_FILE
 }
